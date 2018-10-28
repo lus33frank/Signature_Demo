@@ -1,18 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@android:color/background_dark"
+    tools:context=".MainActivity" >
 
-    <TextView
+    <Button
+        android:id="@+id/undo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="undoOnClick"
+        android:text="上一步"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/redo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="redoOnClick"
+        android:text="下一步"
+        app:layout_constraintEnd_toEndOf="@+id/undo"
+        app:layout_constraintStart_toStartOf="@+id/undo"
+        app:layout_constraintTop_toBottomOf="@+id/undo" />
+
+    <Button
+        android:id="@+id/colorPen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="colorOnClick"
+        android:text="顏色"
+        app:layout_constraintEnd_toEndOf="@+id/undo"
+        app:layout_constraintStart_toStartOf="@+id/undo"
+        app:layout_constraintTop_toBottomOf="@+id/redo" />
+
+    <Button
+        android:id="@+id/clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="clearOnClick"
+        android:text="清除"
+        app:layout_constraintEnd_toEndOf="@+id/undo"
+        app:layout_constraintStart_toStartOf="@+id/undo"
+        app:layout_constraintTop_toBottomOf="@+id/colorPen" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="saveOnClick"
+        android:text="儲存"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/undo"
+        app:layout_constraintStart_toStartOf="@+id/undo"
+        app:layout_constraintTop_toBottomOf="@+id/clear" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.18" />
+
+    <LinearLayout
+        android:id="@+id/signature"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/background_light"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
